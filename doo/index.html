@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Todo Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">✦ TaskFlow</div>
+
+        <p class="menu-title">MENU</p>
+
+        <nav>
+            <button class="nav-btn active" data-filter="all">
+                ▦ &nbsp; All Tasks
+            </button>
+
+            <button class="nav-btn" data-filter="pending">
+                ◷ &nbsp; Pending
+            </button>
+
+            <button class="nav-btn" data-filter="completed">
+                ✓ &nbsp; Completed
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">TF</div>
+                <div>
+                    <h4>My Workspace</h4>
+                    <p>Personal Planner</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="welcome">WELCOME BACK!</p>
+                <h1>My Dashboard</h1>
+                <p class="subtitle">Organize your day and achieve your goals.</p>
+            </div>
+
+            <div class="date-display" id="todayDate"></div>
+        </header>
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card purple">
+                <div class="stat-icon">▦</div>
+                <p>Total Tasks</p>
+                <h2 id="totalTasks">0</h2>
+                <span>All your tasks</span>
+            </div>
+
+            <div class="stat-card orange">
+                <div class="stat-icon">◷</div>
+                <p>Pending Tasks</p>
+                <h2 id="pendingTasks">0</h2>
+                <span>Tasks to complete</span>
+            </div>
+
+            <div class="stat-card green">
+                <div class="stat-icon">✓</div>
+                <p>Completed Tasks</p>
+                <h2 id="completedTasks">0</h2>
+                <span>Successfully finished</span>
+            </div>
+
+        </section>
+
+        <!-- Progress -->
+        <section class="progress-card">
+            <div class="progress-heading">
+                <div>
+                    <h3>Daily Progress</h3>
+                    <p>Keep moving towards your goals!</p>
+                </div>
+                <h2 id="progressPercent">0%</h2>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </section>
+
+        <!-- Task Section -->
+        <section class="task-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>Manage and organize your activities.</p>
+                </div>
+            </div>
+
+            <!-- Add Task -->
+            <form id="taskForm" class="task-form">
+
+                <input type="text" id="taskInput"
+                       placeholder="What do you need to do?"
+                       required>
+
+                <select id="priority">
+                    <option value="Low">Low Priority</option>
+                    <option value="Medium" selected>Medium Priority</option>
+                    <option value="High">High Priority</option>
+                </select>
+
+                <input type="date" id="dueDate">
+
+                <button type="submit" class="add-btn">
+                    + Add Task
+                </button>
+
+            </form>
+
+            <!-- Search and Filters -->
+            <div class="task-toolbar">
+
+                <input type="search" id="searchInput"
+                       placeholder="⌕ Search tasks...">
+
+                <div class="filter-buttons">
+                    <button class="filter-btn selected" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-btn" data-filter="pending">
+                        Pending
+                    </button>
+                    <button class="filter-btn" data-filter="completed">
+                        Completed
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Task List -->
+            <div id="taskList" class="task-list"></div>
+
+            <div class="bottom-actions">
+                <p id="taskSummary">0 tasks available</p>
+                <button id="clearBtn" class="clear-btn">
+                    Clear Completed
+                </button>
+            </div>
+
+        </section>
+
+        <footer>
+            TaskFlow © 2026 | Stay Organized, Stay Productive.
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
